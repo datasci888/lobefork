@@ -33,11 +33,16 @@ const nextConfig: NextConfig = {
       '@lobehub/ui',
       'gpt-tokenizer',
     ],
+    
+    
+    
+    
+    serverActions: true,
     // oidc provider depend on constructor.name
-    // but swc minification will remove the name
-    // so we need to disable it
-    // refs: https://github.com/lobehub/lobe-chat/pull/7430
-    serverMinification: false,
+// but swc minification will remove the name
+// so we need to disable it
+// refs: https://github.com/lobehub/lobe-chat/pull/7430
+serverMinification: false,
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   async headers() {
@@ -192,6 +197,11 @@ const nextConfig: NextConfig = {
       destination: '/files',
       permanent: false,
       source: '/repos',
+    },
+    {
+      destination: '/',
+      permanent: false,
+      source: '/en-US__1__dark/changelog',
     },
   ],
   // when external packages in dev mode with turbopack, this config will lead to bundle error
